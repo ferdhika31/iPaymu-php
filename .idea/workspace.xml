@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c96e0629-cd88-44d7-93e2-95c5dc1f0cf0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Constants/Channel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants/Channel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PaymentDirect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaymentDirect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PaymentRedirect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaymentRedirect.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Validations/PaymentDirectValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Validations/PaymentDirectValidation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +88,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/examples" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -100,6 +98,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dika\Documents\iPaymu-php\examples" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -108,7 +111,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606292411494</updated>
-      <workItem from="1606292413908" duration="6043000" />
+      <workItem from="1606292413908" duration="6822000" />
     </task>
     <servers />
   </component>
@@ -135,6 +138,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="480" y="91" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1606295051268" />
+    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1606299218144">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1606299218144" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606294487778">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
