@@ -13,15 +13,15 @@ class Types
     /**
      * @var string[]
      */
-    public static $ENV = ["SANDBOX", "PRODUCTION"];
+    public static array $ENV = ["SANDBOX", "PRODUCTION"];
 
     /**
      * @var string[]
      */
-    public static $FORMAT = ["xml", "json"];
+    public static array $FORMAT = ["xml", "json"];
 
     /**
      * @var string[]
      */
-    public static $EXPIRED = ["seconds", "minutes", "hours", "days"];
+    public static array $EXPIRED = ["seconds", "minutes", "hours", "days"];
 }

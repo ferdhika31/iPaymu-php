@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c96e0629-cd88-44d7-93e2-95c5dc1f0cf0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants/Channel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants/Channel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants/Types.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants/Types.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/Arr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Arr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PaymentRedirect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaymentRedirect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traits/ApiOperations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traits/ApiOperations.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +93,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -80,21 +110,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606292411494</updated>
-      <workItem from="1606292413908" duration="918000" />
+      <workItem from="1606292413908" duration="4617000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1606292476921">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1606295940516">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606292476921" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606292793673">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606295940516" />
+    <state x="480" y="91" key="NewPhpClassDialog" timestamp="1606295051268">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1606292793673" />
+    <state x="480" y="91" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1606295051268" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606294487778">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1606294487778" />
   </component>
 </project>

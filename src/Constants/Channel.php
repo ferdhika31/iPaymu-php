@@ -11,10 +11,7 @@ namespace ferdhika31\iPaymuPHP\Constants;
 
 class Channel
 {
-    /**
-     * @var \string[][]
-     */
-    public static $DIRECT = [
+    public static array $DIRECT = [
         "va"            => ["bag", "bni", "cimb", "mandiri"],
         "banktransfer"  => ["bca"],
         "cstore"        => ["indomaret", "alfamart"],
@@ -23,10 +20,7 @@ class Channel
         "paylater"      => ["akulaku"]
     ];
 
-    /**
-     * @var \string[][]
-     */
-    public static $REDIRECT = [
-        "cstore"        => ["indomaret", "alfamart"]
+    public static array $REDIRECT = [
+        "cstore" => ["indomaret", "alfamart"]
     ];
 }

@@ -45,4 +45,13 @@ class Arr
     {
         return array_merge($array, $array2);
     }
+
+    /**
+     * @param array $array
+     * @return array
+     */
+    public static function key(array $array)
+    {
+        return array_keys($array);
+    }
 }

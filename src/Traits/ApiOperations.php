@@ -37,7 +37,7 @@ trait ApiOperations
      * @param array $params
      * @return mixed
      */
-    private function _request(string $method, string $pathUrl, array $params = [])
+    private static function _request(string $method, string $pathUrl, array $params = [])
     {
         $method     = strtoupper($method);
         $url        = iPaymu::getBaseUri().$pathUrl;
@@ -67,7 +67,8 @@ trait ApiOperations
         $ret = curl_exec($ch);
         curl_close($ch);
         if($err) {
-            echo $err;
+            var_dump($err);
+            return $err;
         } else {
             $ret = json_decode($ret);
             if($ret->Status === -1001 or $ret->Status === 401) {

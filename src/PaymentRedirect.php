@@ -215,6 +215,6 @@ class PaymentRedirect
 
         PaymentRedirectValidation::validateField(self::$payload);
 
-        return (new PaymentRedirect)->_request('POST', self::$uri, self::$payload);
+        return self::_request('POST', self::$uri, self::$payload);
     }
 }
