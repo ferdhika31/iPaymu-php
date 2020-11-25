@@ -191,7 +191,7 @@ class PaymentRedirect
 
         self::setPaymentMethod('cstore');
 
-        PaymentRedirectValidation::validateChannel(self::$payload['paymentMethod'], $channel);
+        PaymentRedirectValidation::validateChannel(self::getPaymentMethod(), $channel);
 
         return new static();
     }
