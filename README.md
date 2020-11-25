@@ -152,6 +152,21 @@ $id = 27958;
 $getTrx = Transaction::getById($id);
 ```
 
+## Running
+
+### Running test suite:
+
+```bash
+vendor\bin\phpunit tests
+vendor\bin\phpunit tests\BalanceTest.php
+```
+
+### Running examples:
+
+```bash
+php examples\CheckBalanceExample.php
+```
+
 ## Contributing
 
 For any requests, bugs, or comments, please open an [issue](https://github.com/ferdhika31/iPaymu-php/issues) or [submit a pull request](https://github.com/ferdhika31/iPaymu-php/pulls).
