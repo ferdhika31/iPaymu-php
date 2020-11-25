@@ -37,6 +37,12 @@ iPaymu::init($config);
 ```
 See [example codes](./examples) for more details.
 
+### Get Balance
+```php
+<?php
+$getBalance = Balance::getBalance();
+```
+
 ### Set Customer
 ```php
 <?php
