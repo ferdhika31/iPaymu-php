@@ -71,7 +71,7 @@ trait ApiOperations
             return $err;
         } else {
             $ret = json_decode($ret);
-            if($ret->Status === -1001 or $ret->Status === 401) {
+            if(@$ret->Status === -1001 || @$ret->Status === 401) {
                 $msg = $ret->Status === -1001 ? $ret->Keterangan : '';
                 $msg = $ret->Status === 401 ? $ret->Message : $msg;
                 throw new InvalidApiKeyException($msg);
