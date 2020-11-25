@@ -193,18 +193,21 @@ class PaymentRedirect
      */
     public static function create(array $payloadTrx=[])
     {
-        if (!empty(iPaymu::getCustomer())) {
-            self::$payload = array_merge(iPaymu::getCustomer(), self::$payload);
+        $customer = iPaymu::getCustomer();
+        if (!empty($customer)) {
+            self::$payload['buyerName']     = $customer['name'];
+            self::$payload['buyerEmail']    = $customer['email'];
+            self::$payload['buyerPhone']    = $customer['phone'];
         }
 
-        self::$payload['product']    = Arr::pluck(iPaymu::getProducts(), 'name');
-        self::$payload['qty']        = Arr::pluck(iPaymu::getProducts(), 'qty');
-        self::$payload['price']      = Arr::pluck(iPaymu::getProducts(), 'price');
-        self::$payload['description']      = Arr::pluck(iPaymu::getProducts(), 'description');
-        self::$payload['notifyUrl']  = iPaymu::getNotifyUri();
-        self::$payload['returnUrl']  = iPaymu::getReturnUri();
-        self::$payload['cancelUrl']  = iPaymu::getCancelUri();
-        self::$payload['amount']  = Arr::sum((array)Arr::pluck(iPaymu::getProducts(), 'price'));
+        self::$payload['product']       = Arr::pluck(iPaymu::getProducts(), 'name');
+        self::$payload['qty']           = Arr::pluck(iPaymu::getProducts(), 'qty');
+        self::$payload['price']         = Arr::pluck(iPaymu::getProducts(), 'price');
+        self::$payload['description']   = Arr::pluck(iPaymu::getProducts(), 'description');
+        self::$payload['notifyUrl']     = iPaymu::getNotifyUri();
+        self::$payload['returnUrl']     = iPaymu::getReturnUri();
+        self::$payload['cancelUrl']     = iPaymu::getCancelUri();
+        self::$payload['amount']        = Arr::sum((array)Arr::pluck(iPaymu::getProducts(), 'price'));
 
         if (!empty($payloadTrx)) {
             self::$payload = Arr::merge(self::$payload, $payloadTrx);
