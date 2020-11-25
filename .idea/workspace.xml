@@ -87,6 +87,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/examples" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -112,6 +113,7 @@
       <updated>1606292411494</updated>
       <workItem from="1606292413908" duration="7014000" />
       <workItem from="1606305587300" duration="58000" />
+      <workItem from="1606309086632" duration="2959000" />
     </task>
     <servers />
   </component>
@@ -131,10 +133,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1606305615810">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1606311293449">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606305615810" />
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606311293449" />
     <state x="480" y="91" key="NewPhpClassDialog" timestamp="1606295051268">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -143,6 +145,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1606299218144" />
+    <state x="432" y="112" width="646" height="513" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1606311928515">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="432" y="112" width="646" height="513" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.738@0.0.1366.738" timestamp="1606311928515" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606294487778">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

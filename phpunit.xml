@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         bootstrap="vendor/autoload.php"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         verbose="true">
+
+    <testsuites>
+        <testsuite name="iPaymu Test Suite">
+            <directory suffix="Test.php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <server name="VIRTUAL_ACCOUNT" value="1179003821708289"/>
+        <server name="API_KEY" value="387AF695-EE0B-47BD-91A4-ADF55261159D"/>
+    </php>
+</phpunit>
