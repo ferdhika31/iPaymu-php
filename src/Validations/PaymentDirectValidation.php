@@ -16,6 +16,10 @@ use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 
 class PaymentDirectValidation
 {
+    /**
+     * @param array $body
+     * @return bool
+     */
     public static function validateField(array $body = []) : bool
     {
         if (!array_key_exists('amount', $body)) {
@@ -52,6 +56,11 @@ class PaymentDirectValidation
         return true;
     }
 
+    /**
+     * @param string $paymentMethod
+     * @param string $channel
+     * @return bool
+     */
     public static function validateChannel(string $paymentMethod, string $channel) : bool
     {
         if (empty($channel)) {

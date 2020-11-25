@@ -17,10 +17,29 @@ class PaymentDirect
 {
     use ApiOperations;
 
+    /**
+     * @var null
+     */
     private static $instance = null;
+
+    /**
+     * @var array
+     */
     private static array $payload=[];
+
+    /**
+     * @var string
+     */
     private static string $paymentMethod="";
+
+    /**
+     * @var string
+     */
     private static string $channel="";
+
+    /**
+     * @var string
+     */
     private static string $uri = '/api/v2/payment/direct';
 
     /**
@@ -34,7 +53,7 @@ class PaymentDirect
     /**
      * @param string $paymentMethod
      */
-    public static function setPaymentMethod(string $paymentMethod): void
+    private static function setPaymentMethod(string $paymentMethod): void
     {
         self::$paymentMethod = $paymentMethod;
     }
@@ -50,7 +69,7 @@ class PaymentDirect
     /**
      * @param string $channel
      */
-    public static function setChannel(string $channel): void
+    private static function setChannel(string $channel): void
     {
         self::$channel = $channel;
     }
@@ -66,11 +85,15 @@ class PaymentDirect
     /**
      * @param array $payload
      */
-    public static function setPayload(array $payload): void
+    private static function setPayload(array $payload): void
     {
         self::$payload = $payload;
     }
 
+    /**
+     * @param string $channel
+     * @return static
+     */
     public static function VA(string $channel="cimb")
     {
         if(self::$instance == null) {
@@ -83,6 +106,10 @@ class PaymentDirect
         return new static();
     }
 
+    /**
+     * @param string $channel
+     * @return static
+     */
     public static function bankTransfer(string $channel="bca")
     {
         if(self::$instance == null) {
@@ -95,6 +122,10 @@ class PaymentDirect
         return new static();
     }
 
+    /**
+     * @param string $channel
+     * @return static
+     */
     public static function cStore(string $channel="indomaret")
     {
         if(self::$instance == null) {
@@ -107,6 +138,11 @@ class PaymentDirect
         return new static();
     }
 
+    /**
+     * @param array $CODPayload
+     * @param string $channel
+     * @return static
+     */
     public static function cod(array $CODPayload=[], string $channel="rpx")
     {
         if(self::$instance == null) {
@@ -131,6 +167,10 @@ class PaymentDirect
         return new static();
     }
 
+    /**
+     * @param string $channel
+     * @return static
+     */
     public static function QRIS(string $channel="linkaja")
     {
         if(self::$instance == null) {
@@ -143,6 +183,10 @@ class PaymentDirect
         return new static();
     }
 
+    /**
+     * @param array $payloadTrx
+     * @return mixed
+     */
     public static function create(array $payloadTrx=[])
     {
         $payload = self::getPayload();

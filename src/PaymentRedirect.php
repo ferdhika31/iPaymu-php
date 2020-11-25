@@ -31,7 +31,44 @@ class PaymentRedirect
     /**
      * @var string
      */
+    private static string $paymentMethod="";
+
+    /**
+     * @var string
+     */
     private static string $uri = '/api/v2/payment';
+
+    /**
+     * @return array
+     */
+    public static function getPayload(): array
+    {
+        return self::$payload;
+    }
+
+    /**
+     * @param array $payload
+     */
+    private static function setPayload(array $payload): void
+    {
+        self::$payload = $payload;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getPaymentMethod(): string
+    {
+        return self::$paymentMethod;
+    }
+
+    /**
+     * @param string $paymentMethod
+     */
+    private static function setPaymentMethod(string $paymentMethod): void
+    {
+        self::$paymentMethod = $paymentMethod;
+    }
 
     /**
      * @return static
@@ -42,7 +79,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'bagva';
+        self::setPaymentMethod('bagva');
 
         return new static();
     }
@@ -56,7 +93,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'bniva';
+        self::setPaymentMethod('bniva');
 
         return new static();
     }
@@ -70,7 +107,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'mandiriva';
+        self::setPaymentMethod('mandiriva');
 
         return new static();
     }
@@ -84,7 +121,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'niagava';
+        self::setPaymentMethod('niagava');
 
         return new static();
     }
@@ -98,7 +135,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'bcatransfer';
+        self::setPaymentMethod('bcatransfer');
 
         return new static();
     }
@@ -112,7 +149,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'cc';
+        self::setPaymentMethod('cc');
 
         return new static();
     }
@@ -127,7 +164,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'cod';
+        self::setPaymentMethod('cod');
 
         if(in_array('dimension', iPaymu::getProducts())){
             self::$payload['dimension'] = Arr::pluck(iPaymu::getProducts(), 'dimension');
@@ -152,7 +189,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'cstore';
+        self::setPaymentMethod('cstore');
 
         PaymentRedirectValidation::validateChannel(self::$payload['paymentMethod'], $channel);
 
@@ -168,7 +205,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'akulaku';
+        self::setPaymentMethod('akulaku');
 
         return new static();
     }
@@ -182,7 +219,7 @@ class PaymentRedirect
             self::$instance = new self;
         }
 
-        self::$payload['paymentMethod'] = 'qris';
+        self::setPaymentMethod('qris');
 
         return new static();
     }
@@ -193,28 +230,30 @@ class PaymentRedirect
      */
     public static function create(array $payloadTrx=[])
     {
+        $payload = self::$payload;
+
         $customer = iPaymu::getCustomer();
         if (!empty($customer)) {
-            self::$payload['buyerName']     = $customer['name'];
-            self::$payload['buyerEmail']    = $customer['email'];
-            self::$payload['buyerPhone']    = $customer['phone'];
+            $payload['buyerName']     = $customer['name'];
+            $payload['buyerEmail']    = $customer['email'];
+            $payload['buyerPhone']    = $customer['phone'];
         }
 
-        self::$payload['product']       = Arr::pluck(iPaymu::getProducts(), 'name');
-        self::$payload['qty']           = Arr::pluck(iPaymu::getProducts(), 'qty');
-        self::$payload['price']         = Arr::pluck(iPaymu::getProducts(), 'price');
-        self::$payload['description']   = Arr::pluck(iPaymu::getProducts(), 'description');
-        self::$payload['notifyUrl']     = iPaymu::getNotifyUri();
-        self::$payload['returnUrl']     = iPaymu::getReturnUri();
-        self::$payload['cancelUrl']     = iPaymu::getCancelUri();
-        self::$payload['amount']        = Arr::sum((array)Arr::pluck(iPaymu::getProducts(), 'price'));
+        $payload['product']       = Arr::pluck(iPaymu::getProducts(), 'name');
+        $payload['qty']           = Arr::pluck(iPaymu::getProducts(), 'qty');
+        $payload['price']         = Arr::pluck(iPaymu::getProducts(), 'price');
+        $payload['description']   = Arr::pluck(iPaymu::getProducts(), 'description');
+        $payload['notifyUrl']     = iPaymu::getNotifyUri();
+        $payload['returnUrl']     = iPaymu::getReturnUri();
+        $payload['cancelUrl']     = iPaymu::getCancelUri();
+        $payload['amount']        = Arr::sum((array)Arr::pluck(iPaymu::getProducts(), 'price'));
 
         if (!empty($payloadTrx)) {
-            self::$payload = Arr::merge(self::$payload, $payloadTrx);
+            $payload = Arr::merge($payload, $payloadTrx);
         }
 
-        PaymentRedirectValidation::validateField(self::$payload);
+        PaymentRedirectValidation::validateField($payload);
 
-        return self::_request('POST', self::$uri, self::$payload);
+        return self::_request('POST', self::$uri, $payload);
     }
 }
