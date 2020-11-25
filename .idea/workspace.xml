@@ -19,13 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c96e0629-cd88-44d7-93e2-95c5dc1f0cf0" name="Default Changelist" comment="" />
+    <list default="true" id="c96e0629-cd88-44d7-93e2-95c5dc1f0cf0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -109,6 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606292411494</updated>
       <workItem from="1606292413908" duration="7014000" />
+      <workItem from="1606305587300" duration="58000" />
     </task>
     <servers />
   </component>
@@ -125,12 +128,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1606298734789">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1606305615810">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606298734789" />
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606305615810" />
     <state x="480" y="91" key="NewPhpClassDialog" timestamp="1606295051268">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

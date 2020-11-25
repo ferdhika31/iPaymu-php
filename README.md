@@ -40,6 +40,8 @@ See [example codes](./examples) for more details.
 ### Get Balance
 ```php
 <?php
+use ferdhika31\iPaymuPHP\Balance;
+
 $getBalance = Balance::getBalance();
 ```
 
@@ -139,6 +141,15 @@ $directPayment = PaymentDirect::cStore($channel)->create($payloadTrx);
 // Available channel: linkaja (default)
 $channel = 'linkaja';
 $directPayment = PaymentDirect::QRIS($channel)->create($payloadTrx);
+```
+
+### Get Transaction Detail
+```php
+<?php
+use ferdhika31\iPaymuPHP\Transaction;
+
+$id = 27958;
+$getTrx = Transaction::getById($id);
 ```
 
 ## Contributing
