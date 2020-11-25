@@ -12,6 +12,7 @@ namespace ferdhika31\iPaymuPHP\Validations;
 use ferdhika31\iPaymuPHP\iPaymu;
 use ferdhika31\iPaymuPHP\Helpers\Arr;
 use ferdhika31\iPaymuPHP\Constants\Channel;
+use ferdhika31\iPaymuPHP\Constants\Types;
 use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 
 class PaymentDirectValidation
