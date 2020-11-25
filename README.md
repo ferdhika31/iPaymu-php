@@ -6,3 +6,140 @@ iPaymu REST API Client PHP
 ## Documentation
 
 For the API documentation, please check [iPaymu API Documentation](https://ipaymu.com/en/api-documentation/).
+
+## Installation
+
+Install the package with [composer](https://getcomposer.org/) by following command:
+```
+composer require ferdhika31/ipaymu-php
+```
+
+## Usage
+
+### Initialization
+Configure package with your account's secret key obtained from iPaymu Dashboard. You can use [production](https://my.ipaymu.com/) or [sandbox](https://sandbox.ipaymu.com/) environment.
+
+```php
+<?php
+use ferdhika31\iPaymuPHP\iPaymu;
+
+$config = [
+    'env'               => 'SANDBOX', // SANDBOX or PRODUCTION
+    'virtual_account'   => 'your_virtual_account',
+    'api_key'           => 'your_api_key',
+    'notify_uri'        => 'http://localhost:8000/notify',
+    // for redirect payment is required
+    'cancel_uri'        => 'http://localhost:8000/cancel',
+    'return_uri'        => 'http://localhost:8000/return'
+];
+
+iPaymu::init($config);
+```
+See [example codes](./examples) for more details.
+
+### Set Customer
+```php
+<?php
+$customer = [
+    'name' => 'Dika',
+    'email' => 'fer@dika.web.id',
+    'phone' => '083213123332'
+];
+iPaymu::setCustomer($customer);
+```
+
+### Add Product
+```php
+<?php
+iPaymu::addProduct([
+    'name'          => 'Mangga',
+    'qty'           => 2,
+    'price'         => 2500,
+    'description'   => 'Mangga cobian'
+]);
+iPaymu::addProduct([
+    'name'          => 'Jeruk',
+    'qty'           => 1,
+    'price'         => 1500,
+    'description'   => 'Jeruk haseum'
+]);
+```
+
+### Create Redirect Payment
+```php
+<?php
+use ferdhika31\iPaymuPHP\PaymentRedirect;
+
+// optional
+$payloadTrx = [
+    'expired' => 1, // in hours
+    'comments' => 'Transaction comment here',
+    'referenceId' => 'TRX202008310001'
+];
+
+$redirectPayment = PaymentRedirect::create($payloadTrx);
+```
+
+### Create Redirect Payment with Payment Method
+```php
+<?php
+use ferdhika31\iPaymuPHP\PaymentRedirect;
+
+// optional
+$payloadTrx = [
+    'expired' => 1, // in hours
+    'comments' => 'Transaction comment here',
+    'referenceId' => 'TRX202008310001'
+];
+
+$redirectPayment = PaymentRedirect::mandiriVA()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::niagaVA()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::BNIVA()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::BAGVA()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::BCATransfer()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::QRIS()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::CStore()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::creditCard()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::COD()->create($payloadTrx);
+$redirectPayment = PaymentRedirect::akulaku()->create($payloadTrx);
+```
+
+### Create Direct Payment
+```php
+<?php
+use ferdhika31\iPaymuPHP\PaymentDirect;
+
+$payloadTrx = [
+    'amount' => 5000,
+    // optional
+    'expired' => 10,
+    'expiredType' => 'minutes', // in:seconds,minutes,hours,days
+    'comments' => 'Transaction comment here',
+    'referenceId' => 'TRX202008310001'
+];
+
+// Available channel Virtual Account : bag, bni, cimb (default), mandiri
+$channel = 'mandiri';
+$directPayment = PaymentDirect::VA($channel)->create($payloadTrx);
+
+// Available channel Transfer Bank : bca (default)
+$channel = 'bca';
+$directPayment = PaymentDirect::bankTransfer($channel)->create($payloadTrx);
+
+// Available channel Convenience Store : indomaret (default), alfamart
+$channel = 'alfamart';
+$directPayment = PaymentDirect::cStore($channel)->create($payloadTrx);
+
+// Available channel: linkaja (default)
+$channel = 'linkaja';
+$directPayment = PaymentDirect::QRIS($channel)->create($payloadTrx);
+```
+
+## Contributing
+
+For any requests, bugs, or comments, please open an [issue](https://github.com/ferdhika31/iPaymu-php/issues) or [submit a pull request](https://github.com/ferdhika31/iPaymu-php/pulls).
+
+## Authors
+
+* **Ferdhika Yudira** - *Initial work* - [ferdhika31](https://github.com/ferdhika31)
+See also the list of [contributors](https://github.com/ferdhika31/iPaymu-php/contributors) who participated in this project.
