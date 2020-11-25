@@ -42,7 +42,7 @@ try{
 
     // Available channel: linkaja (default)
     $channel = 'linkaja';
-    $directPayment = PaymentDirect::VA($channel)->create($payloadTrx);
+    $directPayment = PaymentDirect::QRIS($channel)->create($payloadTrx);
     var_dump($directPayment);
 }catch (InvalidApiKeyException $e){
     echo ($e->getMessage());
