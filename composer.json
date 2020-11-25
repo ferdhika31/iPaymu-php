@@ -1,0 +1,27 @@
+{
+  "name": "ferdhika31/ipaymu-php",
+  "keywords": ["ipaymu", "php", "payment gateway"],
+  "homepage": "https://github.com/ferdhika31/iPaymu-php",
+  "type": "library",
+  "description": "PHP Client for iPaymu API",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ferdhika Yudira",
+      "email": "fer@dika.web.id"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.2",
+    "php": "^7.4"
+  },
+  "autoload" : {
+    "psr-4" : {
+      "ferdhika31\\iPaymuPHP\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.4"
+  },
+  "minimum-stability": "stable"
+}
