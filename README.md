@@ -5,7 +5,7 @@ iPaymu REST API Client PHP
 
 [![Build Status](https://travis-ci.org/ferdhika31/iPaymu-php.svg?branch=main)](https://travis-ci.org/ferdhika31/iPaymu-php)
 [![StyleCI](https://github.styleci.io/repos/315871520/shield?branch=main)](https://github.styleci.io/repos/315871520)
-[![Coverage Status](https://coveralls.io/repos/ferdhika31/iPaymu-php/badge.svg?branch=main&service=github)](https://coveralls.io/github/NAMESPACE/REPO?branch=master)
+[![Coverage Status](https://coveralls.io/repos/ferdhika31/iPaymu-php/badge.svg?branch=main&service=github)](https://coveralls.io/github/ferdhika31/iPaymu-php?branch=main)
 [![Latest Stable Version](https://poser.pugx.org/ferdhika31/iPaymu-php/v/stable)](https://packagist.org/packages/ferdhika31/iPaymu-php)
 [![Total Downloads](https://poser.pugx.org/ferdhika31/iPaymu-php/downloads)](https://packagist.org/packages/ferdhika31/iPaymu-php)
 [![Latest Unstable Version](https://poser.pugx.org/ferdhika31/iPaymu-php/v/unstable)](https://packagist.org/packages/ferdhika31/iPaymu-php)
