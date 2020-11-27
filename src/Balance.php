@@ -37,7 +37,7 @@ class Balance
      *
      * @return mixed
      */
-    public function getBalance(string $format = 'json')
+    public static function getBalance(string $format = 'json')
     {
         $data = [];
         $data['key'] = iPaymu::getApiKey();

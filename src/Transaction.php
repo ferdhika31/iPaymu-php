@@ -38,7 +38,7 @@ class Transaction
      *
      * @return mixed
      */
-    public function getById(string $idTrx, string $format = 'json')
+    public static function getById(string $idTrx, string $format = 'json')
     {
         $data = [];
         $data['key'] = iPaymu::getApiKey();
