@@ -3,6 +3,13 @@ iPaymu REST API Client PHP
 
 [iPaymu](https://ipaymu.com) API wrapper written in PHP for access from applications.
 
+[![Build Status](https://travis-ci.org/ferdhika31/iPaymu-php.svg?branch=main)](https://travis-ci.org/ferdhika31/iPaymu-php)
+[![StyleCI](https://github.styleci.io/repos/315871520/shield?branch=main)](https://github.styleci.io/repos/315871520)
+[![Latest Stable Version](https://poser.pugx.org/ferdhika31/iPaymu-php/v/stable)](https://packagist.org/packages/ferdhika31/iPaymu-php)
+[![Total Downloads](https://poser.pugx.org/ferdhika31/iPaymu-php/downloads)](https://packagist.org/packages/ferdhika31/iPaymu-php)
+[![Latest Unstable Version](https://poser.pugx.org/ferdhika31/iPaymu-php/v/unstable)](https://packagist.org/packages/ferdhika31/iPaymu-php)
+[![License](https://poser.pugx.org/ferdhika31/iPaymu-php/license)](https://packagist.org/packages/ferdhika31/iPaymu-php)
+
 ## Documentation
 
 For the API documentation, please check [iPaymu API Documentation](https://ipaymu.com/en/api-documentation/).
@@ -170,8 +177,3 @@ php examples\CheckBalanceExample.php
 ## Contributing
 
 For any requests, bugs, or comments, please open an [issue](https://github.com/ferdhika31/iPaymu-php/issues) or [submit a pull request](https://github.com/ferdhika31/iPaymu-php/pulls).
-
-## Authors
-
-* **Ferdhika Yudira** - *Initial work* - [ferdhika31](https://github.com/ferdhika31)
-See also the list of [contributors](https://github.com/ferdhika31/iPaymu-php/contributors) who participated in this project.
