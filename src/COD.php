@@ -1,17 +1,13 @@
 <?php
 /**
- * COD.php
+ * COD.php.
  *
- * @package ferdhika31\iPaymuPHP
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
 
 namespace ferdhika31\iPaymuPHP;
 
-use ferdhika31\iPaymuPHP\iPaymu;
-use ferdhika31\iPaymuPHP\Constants\Types;
-use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 use ferdhika31\iPaymuPHP\Traits\ApiOperations;
 
 class COD
@@ -20,6 +16,7 @@ class COD
 
     /**
      * @param string $trxId
+     *
      * @return mixed
      */
     public function pickup(string $trxId)
@@ -52,6 +49,7 @@ class COD
 
     /**
      * @param string $awb
+     *
      * @return mixed
      */
     public function tracking(string $awb)

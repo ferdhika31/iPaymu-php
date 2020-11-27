@@ -1,16 +1,15 @@
 <?php
 /**
- * iPaymu.php
+ * iPaymu.php.
  *
- * @package ferdhika31\iPaymuPHP
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
 
 namespace ferdhika31\iPaymuPHP;
 
-use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 use ferdhika31\iPaymuPHP\Constants\Types;
+use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 use ferdhika31\iPaymuPHP\Validations\CustomerValidation;
 use ferdhika31\iPaymuPHP\Validations\PaymentRedirectValidation;
 
@@ -68,7 +67,8 @@ class iPaymu
     {
         if (array_key_exists('env', $config)) {
             if (!in_array($config['env'], Types::$ENV)) {
-                $msg = "Environment type is invalid. Available types: ".implode(' ', Types::$ENV);
+                $msg = 'Environment type is invalid. Available types: '.implode(' ', Types::$ENV);
+
                 throw new InvalidArgumentException($msg);
             }
             self::setEnv($config['env']);
@@ -77,12 +77,14 @@ class iPaymu
         }
 
         if (!array_key_exists('virtual_account', $config)) {
-            $msg = "Virtual Account not empty!";
+            $msg = 'Virtual Account not empty!';
+
             throw new InvalidArgumentException($msg);
         }
         self::setVirtualAccount($config['virtual_account']);
         if (!array_key_exists('api_key', $config)) {
-            $msg = "API Key not empty!";
+            $msg = 'API Key not empty!';
+
             throw new InvalidArgumentException($msg);
         }
         self::setApiKey($config['api_key']);

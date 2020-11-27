@@ -1,17 +1,16 @@
 <?php
 /**
- * PaymentDirect.php
+ * PaymentDirect.php.
  *
- * @package ferdhika31\iPaymuPHP
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
 
 namespace ferdhika31\iPaymuPHP;
 
-use ferdhika31\iPaymuPHP\Validations\PaymentDirectValidation;
-use ferdhika31\iPaymuPHP\Traits\ApiOperations;
 use ferdhika31\iPaymuPHP\Helpers\Arr;
+use ferdhika31\iPaymuPHP\Traits\ApiOperations;
+use ferdhika31\iPaymuPHP\Validations\PaymentDirectValidation;
 
 class PaymentDirect
 {
@@ -25,17 +24,17 @@ class PaymentDirect
     /**
      * @var array
      */
-    private static array $payload=[];
+    private static array $payload = [];
 
     /**
      * @var string
      */
-    private static string $paymentMethod="";
+    private static string $paymentMethod = '';
 
     /**
      * @var string
      */
-    private static string $channel="";
+    private static string $channel = '';
 
     /**
      * @var string
@@ -92,12 +91,13 @@ class PaymentDirect
 
     /**
      * @param string $channel
+     *
      * @return static
      */
-    public static function VA(string $channel="cimb")
+    public static function VA(string $channel = 'cimb')
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('va');
@@ -108,12 +108,13 @@ class PaymentDirect
 
     /**
      * @param string $channel
+     *
      * @return static
      */
-    public static function bankTransfer(string $channel="bca")
+    public static function bankTransfer(string $channel = 'bca')
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('banktransfer');
@@ -124,12 +125,13 @@ class PaymentDirect
 
     /**
      * @param string $channel
+     *
      * @return static
      */
-    public static function cStore(string $channel="indomaret")
+    public static function cStore(string $channel = 'indomaret')
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('cstore');
@@ -139,14 +141,15 @@ class PaymentDirect
     }
 
     /**
-     * @param array $CODPayload
+     * @param array  $CODPayload
      * @param string $channel
+     *
      * @return static
      */
-    public static function cod(array $CODPayload=[], string $channel="rpx")
+    public static function cod(array $CODPayload = [], string $channel = 'rpx')
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         $products = iPaymu::getProducts();
@@ -171,12 +174,13 @@ class PaymentDirect
 
     /**
      * @param string $channel
+     *
      * @return static
      */
-    public static function QRIS(string $channel="linkaja")
+    public static function QRIS(string $channel = 'linkaja')
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('qris');
@@ -187,9 +191,10 @@ class PaymentDirect
 
     /**
      * @param array $payloadTrx
+     *
      * @return mixed
      */
-    public static function create(array $payloadTrx=[])
+    public static function create(array $payloadTrx = [])
     {
         $payload = self::getPayload();
 
@@ -207,7 +212,7 @@ class PaymentDirect
         $paymentChannel = self::getChannel();
         $payload['paymentMethod'] = $paymentMethod;
         $payload['paymentChannel'] = $paymentChannel;
-        
+
         PaymentDirectValidation::validateField($payload);
         PaymentDirectValidation::validateChannel($paymentMethod, $paymentChannel);
 

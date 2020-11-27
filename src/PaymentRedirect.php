@@ -1,18 +1,17 @@
 <?php
 
 /**
- * PaymentRedirect.php
+ * PaymentRedirect.php.
  *
- * @package ferdhika31\iPaymuPHP
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
 
 namespace ferdhika31\iPaymuPHP;
 
-use ferdhika31\iPaymuPHP\Validations\PaymentRedirectValidation;
-use ferdhika31\iPaymuPHP\Traits\ApiOperations;
 use ferdhika31\iPaymuPHP\Helpers\Arr;
+use ferdhika31\iPaymuPHP\Traits\ApiOperations;
+use ferdhika31\iPaymuPHP\Validations\PaymentRedirectValidation;
 
 class PaymentRedirect
 {
@@ -26,12 +25,12 @@ class PaymentRedirect
     /**
      * @var array
      */
-    private static array $payload=[];
+    private static array $payload = [];
 
     /**
      * @var string
      */
-    private static string $paymentMethod="";
+    private static string $paymentMethod = '';
 
     /**
      * @var string
@@ -75,8 +74,8 @@ class PaymentRedirect
      */
     public static function BAGVA()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('bagva');
@@ -89,8 +88,8 @@ class PaymentRedirect
      */
     public static function BNIVA()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('bniva');
@@ -103,8 +102,8 @@ class PaymentRedirect
      */
     public static function mandiriVA()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('mandiriva');
@@ -117,8 +116,8 @@ class PaymentRedirect
      */
     public static function niagaVA()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('niagava');
@@ -131,8 +130,8 @@ class PaymentRedirect
      */
     public static function BCATransfer()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('bcatransfer');
@@ -145,8 +144,8 @@ class PaymentRedirect
      */
     public static function creditCard()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('cc');
@@ -156,20 +155,21 @@ class PaymentRedirect
 
     /**
      * @param array $payloadCOD
+     *
      * @return static
      */
-    public static function COD(array $payloadCOD=[])
+    public static function COD(array $payloadCOD = [])
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('cod');
 
-        if(in_array('dimension', iPaymu::getProducts())){
+        if (in_array('dimension', iPaymu::getProducts())) {
             self::$payload['dimension'] = Arr::pluck(iPaymu::getProducts(), 'dimension');
         }
-        if(in_array('weight', iPaymu::getProducts())){
+        if (in_array('weight', iPaymu::getProducts())) {
             self::$payload['weight'] = Arr::pluck(iPaymu::getProducts(), 'weight');
         }
         if (!empty($payloadCOD)) {
@@ -181,12 +181,13 @@ class PaymentRedirect
 
     /**
      * @param string $channel
+     *
      * @return static
      */
-    public static function CStore(string $channel='alfamart')
+    public static function CStore(string $channel = 'alfamart')
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('cstore');
@@ -201,8 +202,8 @@ class PaymentRedirect
      */
     public static function akulaku()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('akulaku');
@@ -215,8 +216,8 @@ class PaymentRedirect
      */
     public static function QRIS()
     {
-        if(self::$instance == null) {
-            self::$instance = new self;
+        if (self::$instance == null) {
+            self::$instance = new self();
         }
 
         self::setPaymentMethod('qris');
@@ -226,27 +227,28 @@ class PaymentRedirect
 
     /**
      * @param array $payloadTrx
+     *
      * @return mixed
      */
-    public static function create(array $payloadTrx=[])
+    public static function create(array $payloadTrx = [])
     {
         $payload = self::$payload;
 
         $customer = iPaymu::getCustomer();
         if (!empty($customer)) {
-            $payload['buyerName']     = $customer['name'];
-            $payload['buyerEmail']    = $customer['email'];
-            $payload['buyerPhone']    = $customer['phone'];
+            $payload['buyerName'] = $customer['name'];
+            $payload['buyerEmail'] = $customer['email'];
+            $payload['buyerPhone'] = $customer['phone'];
         }
 
-        $payload['product']       = Arr::pluck(iPaymu::getProducts(), 'name');
-        $payload['qty']           = Arr::pluck(iPaymu::getProducts(), 'qty');
-        $payload['price']         = Arr::pluck(iPaymu::getProducts(), 'price');
-        $payload['description']   = Arr::pluck(iPaymu::getProducts(), 'description');
-        $payload['notifyUrl']     = iPaymu::getNotifyUri();
-        $payload['returnUrl']     = iPaymu::getReturnUri();
-        $payload['cancelUrl']     = iPaymu::getCancelUri();
-        $payload['amount']        = Arr::sum((array)Arr::pluck(iPaymu::getProducts(), 'price'));
+        $payload['product'] = Arr::pluck(iPaymu::getProducts(), 'name');
+        $payload['qty'] = Arr::pluck(iPaymu::getProducts(), 'qty');
+        $payload['price'] = Arr::pluck(iPaymu::getProducts(), 'price');
+        $payload['description'] = Arr::pluck(iPaymu::getProducts(), 'description');
+        $payload['notifyUrl'] = iPaymu::getNotifyUri();
+        $payload['returnUrl'] = iPaymu::getReturnUri();
+        $payload['cancelUrl'] = iPaymu::getCancelUri();
+        $payload['amount'] = Arr::sum((array) Arr::pluck(iPaymu::getProducts(), 'price'));
 
         if (!empty($payloadTrx)) {
             $payload = Arr::merge($payload, $payloadTrx);

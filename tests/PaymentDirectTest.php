@@ -1,14 +1,14 @@
 <?php
 /**
- * PaymentDirectTest.php
+ * PaymentDirectTest.php.
  *
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
 
+use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 use ferdhika31\iPaymuPHP\iPaymu;
 use ferdhika31\iPaymuPHP\PaymentDirect;
-use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class PaymentDirectTest extends TestCase
@@ -22,15 +22,15 @@ class PaymentDirectTest extends TestCase
             'env'               => 'SANDBOX',
             'virtual_account'   => $_SERVER['VIRTUAL_ACCOUNT'],
             'api_key'           => $_SERVER['API_KEY'],
-            'notify_uri'        => 'http://localhost:8000/notify'
+            'notify_uri'        => 'http://localhost:8000/notify',
         ];
 
         iPaymu::init($config);
 
         $customer = [
-            'name' => 'Dika',
+            'name'  => 'Dika',
             'email' => 'fer@dika.web.id',
-            'phone' => '083213123332'
+            'phone' => '083213123332',
         ];
         iPaymu::setCustomer($customer);
     }
@@ -42,10 +42,10 @@ class PaymentDirectTest extends TestCase
         $payloadTrx = [
             'amount' => 5000,
             // optional
-            'expired' => 10,
+            'expired'     => 10,
             'expiredType' => 'minutes', // in:seconds,minutes,hours,days
-            'comments' => 'Transaction comment here',
-            'referenceId' => 'TRX202008310001'
+            'comments'    => 'Transaction comment here',
+            'referenceId' => 'TRX202008310001',
         ];
 
         // Available channel: bag, bni, cimb (default), mandiri
@@ -66,10 +66,10 @@ class PaymentDirectTest extends TestCase
         $payloadTrx = [
             'amount' => 5000,
             // optional
-            'expired' => 10,
+            'expired'     => 10,
             'expiredType' => 'minutes', // in:seconds,minutes,hours,days
-            'comments' => 'Transaction comment here',
-            'referenceId' => 'TRX202008310001'
+            'comments'    => 'Transaction comment here',
+            'referenceId' => 'TRX202008310001',
         ];
 
         // Available channel: bca (default)
@@ -90,10 +90,10 @@ class PaymentDirectTest extends TestCase
         $payloadTrx = [
             'amount' => 5000,
             // optional
-            'expired' => 10,
+            'expired'     => 10,
             'expiredType' => 'minutes', // in:seconds,minutes,hours,days
-            'comments' => 'Transaction comment here',
-            'referenceId' => 'TRX202008310001'
+            'comments'    => 'Transaction comment here',
+            'referenceId' => 'TRX202008310001',
         ];
 
         // Available channel: linkaja (default)
@@ -114,10 +114,10 @@ class PaymentDirectTest extends TestCase
         $payloadTrx = [
             'amount' => 5000,
             // optional
-            'expired' => 10,
+            'expired'     => 10,
             'expiredType' => 'minutes', // in:seconds,minutes,hours,days
-            'comments' => 'Transaction comment here',
-            'referenceId' => 'TRX202008310001'
+            'comments'    => 'Transaction comment here',
+            'referenceId' => 'TRX202008310001',
         ];
 
         // Available channel: indomaret (default), alfamart

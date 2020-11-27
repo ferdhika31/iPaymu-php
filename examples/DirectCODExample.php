@@ -1,16 +1,15 @@
 <?php
 /**
- * DirectCODExample.php
+ * DirectCODExample.php.
  *
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
-
 require './vendor/autoload.php';
 
-use ferdhika31\iPaymuPHP\iPaymu;
-use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
 use ferdhika31\iPaymuPHP\Exceptions\InvalidApiKeyException;
+use ferdhika31\iPaymuPHP\Exceptions\InvalidArgumentException;
+use ferdhika31\iPaymuPHP\iPaymu;
 use ferdhika31\iPaymuPHP\PaymentDirect;
 
 $config = [
@@ -20,13 +19,13 @@ $config = [
     'notify_uri'        => 'http://localhost:8000/notify',
 ];
 
-try{
+try {
     iPaymu::init($config);
 
     $customer = [
-        'name' => 'Dika',
+        'name'  => 'Dika',
         'email' => 'fer@dika.web.id',
-        'phone' => '083213123332'
+        'phone' => '083213123332',
     ];
     iPaymu::setCustomer($customer);
 
@@ -37,30 +36,30 @@ try{
         'weight'    => 2, // in kilogram
         'length'    => 10, // in cm
         'width'     => 20, // in cm
-        'height'    => 20 // in cm
+        'height'    => 20, // in cm
     ]);
 
     $payloadTrx = [
         'amount' => 5000,
         // optional
-        'expired' => 10,
+        'expired'     => 10,
         'expiredType' => 'minutes', // in:seconds,minutes,hours,days
         'description' => 'Description comment here',
-        'referenceId' => 'TRX202008310001'
+        'referenceId' => 'TRX202008310001',
     ];
 
     $payloadCOD = [
-        'deliveryArea' => '40391',
+        'deliveryArea'    => '40391',
         'deliveryAddress' => 'Lembang',
         // optional
-        'pickupArea' => '40391',
+        'pickupArea'    => '40391',
         'pickupAddress' => 'Lembang',
-        'splitCount' => 1
+        'splitCount'    => 1,
     ];
     $directPayment = PaymentDirect::COD($payloadCOD)->create($payloadTrx);
     var_dump($directPayment);
-}catch (InvalidApiKeyException $e){
-    echo ($e->getMessage());
-}catch (InvalidArgumentException $e){
-    echo ($e->getMessage());
+} catch (InvalidApiKeyException $e) {
+    echo $e->getMessage();
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage();
 }

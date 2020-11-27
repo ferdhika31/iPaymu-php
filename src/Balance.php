@@ -1,8 +1,7 @@
 <?php
 /**
- * Balance.php
+ * Balance.php.
  *
- * @package ferdhika31\iPaymuPHP
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
@@ -19,12 +18,14 @@ class Balance
 
     /**
      * @param string|null $format
+     *
      * @return bool
      */
-    public static function validateFormat(string $format = null) : bool
+    public static function validateFormat(string $format = null): bool
     {
         if (!in_array($format, Types::$FORMAT)) {
-            $msg = "Format is invalid. Available types: ".implode(' ', Types::$FORMAT);
+            $msg = 'Format is invalid. Available types: '.implode(' ', Types::$FORMAT);
+
             throw new InvalidArgumentException($msg);
         }
 
@@ -33,9 +34,10 @@ class Balance
 
     /**
      * @param string|null $format
+     *
      * @return mixed
      */
-    public function getBalance(string $format = "json")
+    public function getBalance(string $format = 'json')
     {
         $data = [];
         $data['key'] = iPaymu::getApiKey();

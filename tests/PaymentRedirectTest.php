@@ -1,6 +1,6 @@
 <?php
 /**
- * PaymentRedirectTest.php
+ * PaymentRedirectTest.php.
  *
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
@@ -23,7 +23,7 @@ class PaymentRedirectTest extends TestCase
             'api_key'           => $_SERVER['API_KEY'],
             'notify_uri'        => 'http://localhost:8000/notify',
             'cancel_uri'        => 'http://localhost:8000/cancel',
-            'return_uri'        => 'http://localhost:8000/return'
+            'return_uri'        => 'http://localhost:8000/return',
         ];
 
         iPaymu::init($config);
@@ -32,7 +32,7 @@ class PaymentRedirectTest extends TestCase
             'name'          => 'Mangga',
             'qty'           => 3,
             'price'         => 2500,
-            'description'   => 'Mangga cobian'
+            'description'   => 'Mangga cobian',
         ]);
     }
 
@@ -42,9 +42,9 @@ class PaymentRedirectTest extends TestCase
 
         // optional
         $payloadTrx = [
-            'expired' => 1, // in hours
-            'comments' => 'Transaction comment here',
-            'referenceId' => 'TRX202008310001'
+            'expired'     => 1, // in hours
+            'comments'    => 'Transaction comment here',
+            'referenceId' => 'TRX202008310001',
         ];
         $response = PaymentRedirect::create($payloadTrx);
 
