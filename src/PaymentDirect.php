@@ -149,20 +149,22 @@ class PaymentDirect
             self::$instance = new self;
         }
 
-        // maintenance
-        // kudu nyieun heula
-//
-//        $payload = self::getPayload();
-//
-//        $payload['account'] = iPaymu::getVirtualAccount();
-//        $payload['amount'] = 0;
-//
-//        $payload = Arr::merge($payload, $CODPayload);
-//
-//        self::setPayload($payload);
-//
-//        self::setPaymentMethod('cod');
-//        self::setChannel($channel);
+        $products = iPaymu::getProducts();
+        PaymentDirectValidation::validateProducts($products);
+
+        $payload = self::getPayload();
+        $payload['account'] = iPaymu::getVirtualAccount();
+        $payload['product'] = Arr::pluck($products, 'name');
+        $payload['qty'] = Arr::pluck($products, 'qty');
+        $payload['price'] = Arr::pluck($products, 'price');
+        $payload['weight'] = Arr::pluck($products, 'weight');
+        $payload['length'] = Arr::pluck($products, 'length');
+        $payload['width'] = Arr::pluck($products, 'width');
+        $payload['height'] = Arr::pluck($products, 'height');
+        $payload = Arr::merge($payload, $CODPayload);
+        self::setPayload($payload);
+        self::setPaymentMethod('cod');
+        self::setChannel($channel);
 
         return new static();
     }

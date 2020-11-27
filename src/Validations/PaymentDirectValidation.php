@@ -76,4 +76,18 @@ class PaymentDirectValidation
 
         return true;
     }
+
+    /**
+     * @param array $products
+     * @return bool
+     */
+    public static function validateProducts(array $products) : bool
+    {
+        if (empty($products)) {
+            $msg = "Products not empty!";
+            throw new InvalidArgumentException($msg);
+        }
+
+        return true;
+    }
 }
