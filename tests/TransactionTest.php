@@ -1,6 +1,6 @@
 <?php
 /**
- * TransactionTest.php
+ * TransactionTest.php.
  *
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
@@ -17,7 +17,7 @@ class TransactionTest extends TestCase
         $config = [
             'env'               => 'SANDBOX',
             'virtual_account'   => $_SERVER['VIRTUAL_ACCOUNT'],
-            'api_key'           => $_SERVER['API_KEY']
+            'api_key'           => $_SERVER['API_KEY'],
         ];
 
         iPaymu::init($config);

@@ -1,32 +1,32 @@
 <?php
 /**
- * Request.php
+ * Request.php.
  *
- * @package ferdhika31\iPaymuPHP\Traits
  * @author  Ferdhika Yudira
  * @email   fer@dika.web.id
  */
 
 namespace ferdhika31\iPaymuPHP\Traits;
 
-use ferdhika31\iPaymuPHP\iPaymu;
 use ferdhika31\iPaymuPHP\Exceptions\InvalidApiKeyException;
+use ferdhika31\iPaymuPHP\iPaymu;
 
 trait ApiOperations
 {
     /**
      * @param array $body
      * @param $method
+     *
      * @return string
      */
-    private static function generateSignature(array $body, $method) : string
+    private static function generateSignature(array $body, $method): string
     {
         $va = iPaymu::getVirtualAccount();
         $secret = iPaymu::getApiKey();
 
-        $jsonBody     = json_encode($body, JSON_UNESCAPED_SLASHES);
-        $requestBody  = strtolower(hash('sha256', $jsonBody));
-        $stringToSign = strtoupper($method) . ':' . $va . ':' . $requestBody . ':' . $secret;
+        $jsonBody = json_encode($body, JSON_UNESCAPED_SLASHES);
+        $requestBody = strtolower(hash('sha256', $jsonBody));
+        $stringToSign = strtoupper($method).':'.$va.':'.$requestBody.':'.$secret;
 
         return hash_hmac('sha256', $stringToSign, $secret);
     }
@@ -34,23 +34,24 @@ trait ApiOperations
     /**
      * @param string $method
      * @param string $pathUrl
-     * @param array $params
+     * @param array  $params
+     *
      * @return mixed
      */
     private static function _request(string $method, string $pathUrl, array $params = [])
     {
-        $method     = strtoupper($method);
-        $url        = iPaymu::getBaseUri().$pathUrl;
-        $signature  = self::generateSignature($params, $method);
-        $timestamp  = Date('YmdHis');
+        $method = strtoupper($method);
+        $url = iPaymu::getBaseUri().$pathUrl;
+        $signature = self::generateSignature($params, $method);
+        $timestamp = date('YmdHis');
 
-        $headers = array(
+        $headers = [
             'Accept: application/json',
             'Content-Type: application/json',
-            'va: ' . iPaymu::getVirtualAccount(),
-            'signature: ' . $signature,
-            'timestamp: ' . $timestamp
-        );
+            'va: '.iPaymu::getVirtualAccount(),
+            'signature: '.$signature,
+            'timestamp: '.$timestamp,
+        ];
         $jsonBody = json_encode($params, JSON_UNESCAPED_SLASHES);
 
         $ch = curl_init($url);
@@ -66,16 +67,19 @@ trait ApiOperations
         $err = curl_error($ch);
         $ret = curl_exec($ch);
         curl_close($ch);
-        if($err) {
+        if ($err) {
             var_dump($err);
+
             return $err;
         } else {
             $ret = json_decode($ret);
-            if(@$ret->Status === -1001 || @$ret->Status === 401) {
+            if (@$ret->Status === -1001 || @$ret->Status === 401) {
                 $msg = $ret->Status === -1001 ? $ret->Keterangan : '';
                 $msg = $ret->Status === 401 ? $ret->Message : $msg;
+
                 throw new InvalidApiKeyException($msg);
             }
+
             return $ret;
         }
     }
